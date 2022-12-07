@@ -1,3 +1,5 @@
+import {Matrix} from "./Matrix.js";
+
 class Vector3{
   constructor(x, y, z, ) {
     this.x = x;
@@ -89,6 +91,19 @@ class Vector3{
   // 向量归一化
   normalize(){
     return this.divideScalar(this.norm())
+  }
+  // 获取向量的转置
+  transpose(){
+      return new Matrix(3, 1).setMatrix(this.x,this.y,this.z)
+  }
+  // 应用一个矩阵
+  applyMatrix(m){
+      const res = this.transpose().multiply(m)
+      // console.log(res)
+      this.x = res.getValue(0,0)
+      this.y = res.getValue(1,0)
+      this.z = res.getValue(2,0)
+     return this
   }
 }
 

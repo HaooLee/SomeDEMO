@@ -35,7 +35,8 @@ loadModelDom.addEventListener('change',(e)=>{
     const loader = new ObjLoader()
     loader.load(reader.result)
     // console.log(loader.model)
-    const world = new World()
+    const world = new World();
+    loader.model.scale(3,3,3);
     world.addActor(loader.model);
     const render = new Render().createRender(600,600);
     render.draw(world)

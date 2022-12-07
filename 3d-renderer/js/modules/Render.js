@@ -12,13 +12,14 @@ export default class Render{
   draw(world){
     this.ctx.translate(300,300);
     // console.time('draw')
+
     world.actors.forEach((model)=>{
-      console.log(model)
+        console.log(model)
       model.triangles.forEach((triangle)=>{
         this.ctx.beginPath();
-        this.ctx.moveTo(triangle.vertexes[0].position.x * 15,-triangle.vertexes[0].position.y * 15);
-        this.ctx.lineTo(triangle.vertexes[1].position.x * 15,-triangle.vertexes[1].position.y * 15) ;
-        this.ctx.lineTo(triangle.vertexes[2].position.x * 15,-triangle.vertexes[2].position.y * 15);
+        this.ctx.moveTo(triangle.vertexes[0].position.x,-triangle.vertexes[0].position.y );
+        this.ctx.lineTo(triangle.vertexes[1].position.x ,-triangle.vertexes[1].position.y ) ;
+        this.ctx.lineTo(triangle.vertexes[2].position.x ,-triangle.vertexes[2].position.y );
         this.ctx.stroke()
       })
     })
